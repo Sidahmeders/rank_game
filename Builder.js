@@ -6,17 +6,18 @@ class Address {
     }
 }
 
-class User {
-    constructor(name, /*age, phone, address*/) {
-        this.name = name
-        /*this.age = age
-        this.phone = phone
-        this.address = address*/
-    }
-}
+// class User {
+//     constructor(name, /*age, phone, address*/) {
+//         this.name = name
+//         /*this.age = age
+//         this.phone = phone
+//         this.address = address*/
+//     }
+// }
 
 // const user = new User('Bob', undefined, undefined, new Address(2153, 'otawa'))
 
+/*
 class UserBuilder {
     constructor(name) {
         this.user = new User(name)
@@ -43,5 +44,17 @@ class UserBuilder {
 }
 
 const user = new UserBuilder('Bob').setAge(23).setPhone('1717').build()
+*/
+
+class User {
+    constructor(name, { age, phone = 'xxx', address } = {}) {
+        this.name = name
+        this.age = age
+        this.phone = phone
+        this.address = address
+    }
+}
+
+const user = new User('Bob', {age: 25, address: new Address(2323, 'xanga')})
 
 console.log(user)
