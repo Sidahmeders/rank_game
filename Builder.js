@@ -6,3 +6,14 @@ class Address {
     }
 }
 
+class User {
+    constructor(name, age, phone, address) {
+        this.name = name
+        this.age = age
+        this.phone = phone
+        this.address = address
+    }
+}
+
+const user = new user('Bob')
+console.log(user)
