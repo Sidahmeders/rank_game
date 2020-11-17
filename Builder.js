@@ -42,6 +42,6 @@ class UserBuilder {
     }
 }
 
-const user = new UserBuilder('Bob').setAge(23).build()
+const user = new UserBuilder('Bob').setAge(23).setPhone('1717').build()
 
 console.log(user)
