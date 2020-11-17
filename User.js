@@ -1,3 +1,4 @@
+
 class User {
     constructor(id, name) {
         this.id = id
@@ -5,7 +6,18 @@ class User {
     }
 
     hasAccess() {
-        this.name === 'Bob'
+        return this.name === 'Bob'
+    }
+}
+
+class NullUser {
+    constructor() {
+        this.id = -1
+        this.name = 'Guest'
+    }
+
+    hasAccess() {
+        return false
     }
 }
 
