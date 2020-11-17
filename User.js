@@ -34,11 +34,11 @@ function getUser(id) {
 
 function printUser(id) {
     const user = getUser(id)
-    
+
     console.log('Hello ', user.name)
 
     if (user.hasAccess()) console.log('you have access')
     else console.log('you are not allowed to see this')
 }
 
-printUser(12)
+printUser(2)
