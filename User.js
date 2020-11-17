@@ -27,21 +27,18 @@ const users = [
 ]
 
 function getUser(id) {
-    return users.find(user => user.id === id)
+    const user = users.find(user => user.id === id)
+    if (user == null) return new NullUser()
+    else return user
 }
 
 function printUser(id) {
     const user = getUser(id)
+    
+    console.log('Hello ', user.name)
 
-    let name = 'Guest'
-    if (user != null && user.name != null) name = user.name
-    console.log('Hello ', name)
-
-    if (user != null && user.hasAccess != null && user.hasAccess) {
-        console.log('you have access')
-    } else {
-        console.log('you are not allowed to see this')
-    }
+    if (user.hasAccess()) console.log('you have access')
+    else console.log('you are not allowed to see this')
 }
 
 printUser(12)
