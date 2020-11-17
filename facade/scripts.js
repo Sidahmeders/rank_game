@@ -12,3 +12,11 @@ function getUserPosts(userId) {
     }).then(res => res.json())
 }
 
+getUsers().then(users => {
+    users.forEach(user => {
+        getUserPosts(user.id).then(posts => {
+            console.log(user.name)
+            console.log(posts.length)
+        })
+    })
+})
