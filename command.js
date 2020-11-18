@@ -2,28 +2,40 @@
 class Calculator {
     constructor() {
         this.value = 0
+        this.history = []
     }
 
-    add(val) {
-        this.value += val
+    executeCommand(command) {
+        this.value = command.execute(this.value)
+        this.history.push(command)
     }
 
-    subtract(val) {
-        this.value -= val
-    }
-
-    multiply(val) {
-        this.value *= val
-    }
-
-    divide(val) {
-        this.value /= val
+    undo() {
+        const command = this.history.pop()
+        this.value = command.undo(this.value)
     }
 
 }
 
-const d = new Calculator()
+class AddCommand {
+    constructor(valueToAdd) {
+        this.valueToAdd = valueToAdd
+    }
 
-d.add(12)
-d.divide(2)
-console.log(d.value)
+    execute(currentValue) {
+        return currentValue += this.valueToAdd
+    }
+
+    undo() {
+        return currentValue -= this.valueToAdd
+    }
+}
+
+const addCommand = new AddCommand(10)
+console.log(addCommand.execute(20))
+
+const claculator = new Calculator()
+
+// claculator.add(12)
+// claculator.divide(2)
+// console.log(claculator.value)
