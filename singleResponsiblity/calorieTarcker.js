@@ -1,3 +1,4 @@
+const { logCaloriesSurplus } = require('./logger')
 
 class CalorieTracker {
     constructor(maxCalories) {
@@ -8,12 +9,8 @@ class CalorieTracker {
     trackCalories(caloriesCount) {
         this.currentCalories += caloriesCount
         if (this.currentCalories > this.maxCalories) {
-            this.logCaloriesSurplus()
+            logCaloriesSurplus('Max Calories Exeeded')
         }
-    }
-
-    logCaloriesSurplus() {
-        console.log('Max Calories exeeded')
     }
 }
 
