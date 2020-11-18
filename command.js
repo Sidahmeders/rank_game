@@ -14,7 +14,6 @@ class Calculator {
         const command = this.history.pop()
         this.value = command.undo(this.value)
     }
-
 }
 
 class AddCommand {
@@ -23,19 +22,51 @@ class AddCommand {
     }
 
     execute(currentValue) {
-        return currentValue += this.valueToAdd
+        return currentValue + this.valueToAdd
     }
 
-    undo() {
-        return currentValue -= this.valueToAdd
+    undo(currentValue) {
+        return currentValue - this.valueToAdd
     }
 }
 
-const addCommand = new AddCommand(10)
-console.log(addCommand.execute(20))
+class multiplyCommand {
+    constructor(valueToMultiply) {
+        this.valueToMultiply = valueToMultiply
+    }
+
+    execute(currentValue) {
+        return currentValue * this.valueToMultiply
+    }
+
+    undo(currentValue) {
+        return currentValue / this.valueToMultiply
+    }
+}
+
+class AddAndMultiplyCommand {
+    constructor(valueToAdd, valueToMultiply) {
+        this.valueToAdd = new AddCommand(valueToAdd)
+        this.valueToMultiply =  new multiplyCommand(valueToMultiply)
+    }
+
+    execute(currentValue) {
+        const newValue = this.valueToAdd.execute(currentValue)
+        return this.valueToMultiply.execute(newValue)
+    }
+
+    undo(currentValue) {
+        const newValue = this.valueToMultiply.undo(currentValue)
+        return this.valueToAdd.undo(newValue)
+    }
+}
 
 const claculator = new Calculator()
 
-// claculator.add(12)
-// claculator.divide(2)
+// claculator.executeCommand(new AddCommand(7))
+// claculator.executeCommand(new multiplyCommand(10))
 // console.log(claculator.value)
+claculator.executeCommand(new AddAndMultiplyCommand(7, 10))
+console.log(claculator.value)
+claculator.undo()
+console.log(claculator.value)
