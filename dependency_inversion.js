@@ -31,11 +31,12 @@ class StripePaymentProcessor {
 
 class PaypalPaymentProcesor{
     constructor(user) {
-        this.stripe = new Paypal(user)
+        this.paypal = new Paypal()
+        this.user = user
     }
 
     pay(amountInDollars) {
-        this.stripe.makePayment(amountInDollars * 100)
+        this.paypal.makePayment(this.user, amountInDollars)
     }
 }
 
@@ -55,6 +56,6 @@ class Paypal {
     }
 }
 
-const store = new Store('John')
+const store = new Store(new StripePaymentProcessor('Johana'))
 store.purchaseBike(2)
 store.purchaseHelmet(2)
