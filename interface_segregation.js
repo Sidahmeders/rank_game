@@ -94,7 +94,8 @@ const mover = {
 
 const attacker = {
     attack(targetEntity) {
-        console.log(`${this.name} attacked ${targetEntity.name}`)
+        console.log(`${this.name} attacked ${targetEntity.name} for ${this.attackDamage} damage`)
+        targetEntity.takeDamage(this.attackDamage)
     }
 }
 
@@ -125,3 +126,21 @@ class Wall extends Entity {
 }
 
 Object.assign(Wall.prototype, hasHealth)
+
+class Turret extends Entity {
+    constructor(name, attackDamage) {
+        super(name)
+        this.attackDamage = attackDamage
+    }
+}
+
+Object.assign(Turret.prototype, attacker)
+
+
+const turret = new Turret('turret', 5)
+const character = new Character('character', 3, 100)
+const wall = new Wall('wall', 200)
+
+turret.attack(character)
+character.move()
+character.attack(wall)
