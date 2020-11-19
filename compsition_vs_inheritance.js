@@ -32,6 +32,13 @@ class FlyingSwimmingMonster {
 
 // composition
 
+function attckerAndWalker({ name }) {
+    return {
+        attack: () => console.log(`${name} attacked`),
+        walk: () => console.log(`${name} walked`)
+    }
+}
+
 function swimmer({ name }) {
     return {
         swim: () => console.log(`${name} swam`)
@@ -49,7 +56,8 @@ function swimmingMonsterCreator(name) {
 
     return {
         ...monster,
-        ...swimmer(monster)
+        ...swimmer(monster),
+        ...attckerAndWalker(monster)
     }
 }
 
@@ -59,7 +67,8 @@ function flyingSwimmingMonsterCreator(name) {
     return {
         ...monster,
         ...swimmer(monster),
-        ...flyer(monster)
+        ...flyer(monster),
+        ...attckerAndWalker(monster)
     }
 }
 
@@ -67,3 +76,5 @@ function flyingSwimmingMonsterCreator(name) {
 const obj = flyingSwimmingMonsterCreator('Monster' )
 obj.swim()
 obj.fly()
+obj.walk()
+obj.attack()
