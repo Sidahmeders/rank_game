@@ -1,17 +1,42 @@
 
 class Store {
     constructor(user) {
-        this.stripe = new Stripe(user)
+        this.paymentProcessor = new PaymentProcessor(user)
+        // this.stripe = new Stripe(user)
+        // this.paypal = new Paypal()
     }
 
     purchaseBike(quantity) {
-        this.stripe.makePayment(200 * quantity * 100)
+        this.paymentProcessor.pay(200 * quantity)
+        // this.stripe.makePayment(200 * quantity * 100)
+        // this.paypal.makePayment(this.user, 200 * quantity)
     }
 
     purchaseHelmet(quantity) {
-        this.stripe.makePayment(15 * quantity * 100)
+        this.paymentProcessor.pay(15 * quantity)
+        // this.stripe.makePayment(15 * quantity * 100)
+        // this.paypal.makePayment(this.user, 15 * quantity)
     }
 }
+
+class PaymenetProcessor {
+    constructor(user) {
+        this.user = user
+    }
+}
+
+class StripePaymentProcessor {
+    constructor(user) {
+        this.user = user
+    }
+}
+
+class PaypalPaymentProcesor {
+    constructor(user) {
+        this.user = user
+    }
+}
+
 
 class Stripe {
     constructor(user) {
