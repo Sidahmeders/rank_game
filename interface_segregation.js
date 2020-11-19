@@ -118,5 +118,10 @@ Object.assign(Character.prototype, attacker)
 Object.assign(Character.prototype, hasHealth)
 
 class Wall extends Entity {
-    constructor(name, health)
+    constructor(name, health) {
+        super(name)
+        this.health = health
+    }
 }
+
+Object.assign(Wall.prototype, hasHealth)
