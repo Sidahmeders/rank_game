@@ -7,6 +7,10 @@ class Store {
     purchaseBike(quantity) {
         this.stripe.makePayment(15 * quantity * 100)
     }
+
+    purchaseHelmet(quantity) {
+        this.stripe.makePayment(15 * quantity * 100)
+    }
 }
 
 class Stripe {
@@ -19,4 +23,4 @@ class Stripe {
     }
 }
 
-
+class Paypal {}
