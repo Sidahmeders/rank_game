@@ -1,7 +1,7 @@
 
 class Store {
-    constructor(user) {
-        this.paymentProcessor = new PaymentProcessor(user)
+    constructor(paymentProcessor) {
+        this.paymentProcessor = paymentProcessor
         // this.stripe = new Stripe(user)
         // this.paypal = new Paypal()
     }
@@ -27,7 +27,11 @@ class PaymenetProcessor {
 
 class StripePaymentProcessor {
     constructor(user) {
-        this.user = user
+        this.stripe = new Stripe(user)
+    }
+
+    pay(amountInDollars) {
+        this.stripe.makePayment(amountInDollars * 100)
     }
 }
 
