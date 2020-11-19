@@ -32,7 +32,6 @@ class FlyingSwimmingMonster {
 
 // composition
 
-
 function swimmer({ name }) {
     return {
         swim: () => console.log(`${name} swam`)
@@ -65,5 +64,6 @@ function flyingSwimmingMonsterCreator(name) {
 }
 
 
-const obj = swimmingMonsterCreator('Monster' )
+const obj = flyingSwimmingMonsterCreator('Monster' )
 obj.swim()
+obj.fly()
