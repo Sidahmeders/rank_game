@@ -1,9 +1,10 @@
 
 let obj = {val: 10}
 
-function increse(n) {
-    n++
+function increse(num) {
+    num++
 }
 
 increse(obj)
-CompositionEvent
+
+console.log(obj.val)
