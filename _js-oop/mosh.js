@@ -1,2 +1,2 @@
 
-// refernec vs value
+// pepole want lies
