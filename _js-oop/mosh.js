@@ -1,10 +1,10 @@
 
 let obj = {val: 10}
 
-function increse(num) {
-    num++
+function increase({ val }) {
+    val++
 }
 
-increse(obj)
+increase(obj)
 
 console.log(obj.val)
