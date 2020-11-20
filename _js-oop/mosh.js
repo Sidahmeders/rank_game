@@ -6,3 +6,4 @@ function increse(n) {
 }
 
 increse(obj)
+CompositionEvent
