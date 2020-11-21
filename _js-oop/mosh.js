@@ -7,4 +7,8 @@ function Circle(radius) {
     this.computeOptimumLocation = function() {
         // do some fancy stuff
     }
+
+    this.draw = function() {
+        console.log('drwaing..')
+    }
 }
