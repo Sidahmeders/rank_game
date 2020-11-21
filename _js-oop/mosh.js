@@ -24,4 +24,5 @@ function Circle(radius) {
 
 const circle = new Circle(10)
 
-console.log(circle.defLoc = 5)
+console.log(circle.defLoc = 55)
+console.log(circle.defLoc)
