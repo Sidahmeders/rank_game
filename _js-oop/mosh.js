@@ -12,6 +12,15 @@ function Circle(radius) {
         computeOptimumLocation(3)
         console.log('drwaing..')
     }
+
+    Object.defineProperty(this, 'defLoc', {
+        get: function() {
+            return defaultLocation
+        },
+        set: value => computeOptimumLocation(value)
+    })
 }
 
 const circle = new Circle(10)
+
+circle.defaultLocation
