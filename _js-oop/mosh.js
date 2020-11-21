@@ -24,5 +24,22 @@ function Circle(radius) {
 
 const circle = new Circle(10)
 
-console.log(circle.defLoc = 55)
-console.log(circle.defLoc)
+// console.log(circle.defLoc = 55)
+// console.log(circle.defLoc)
+
+function StopWatch() {
+    this.now = Date.now()
+    this.duration = 0
+
+    this.start = function() {
+        let startTime = this.now
+    }
+
+    // this.restart = function() {}
+
+    // this.stop() = function() {}
+}
+
+const sw =  new StopWatch()
+
+console.log(sw.now)
