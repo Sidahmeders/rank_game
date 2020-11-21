@@ -27,19 +27,20 @@ const circle = new Circle(10)
 // console.log(circle.defLoc = 55)
 // console.log(circle.defLoc)
 
-function StopWatch() {
-    this.now = Date.now()
-    this.duration = 0
+function StopWatch() { 
+    let startTime, endTime, running, duration = 0
 
     this.start = function() {
-        let startTime = this.now
+        startPoint = Date.now()
     }
 
+    // this.stop() = function() {}
+    
     // this.restart = function() {}
 
-    // this.stop() = function() {}
+    
 }
 
 const sw =  new StopWatch()
 
-console.log(sw.now)
+console.log(sw.duration)
