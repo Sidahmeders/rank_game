@@ -12,3 +12,5 @@ function Circle(radius) {
         console.log('drwaing..')
     }
 }
+
+const circle = new Circle(10)
