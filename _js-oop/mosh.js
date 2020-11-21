@@ -14,13 +14,14 @@ function Circle(radius) {
     }
 
     Object.defineProperty(this, 'defLoc', {
-        get: function() {
-            return defaultLocation
-        },
-        set: value => computeOptimumLocation(value)
+        get: () => defaultLocation,
+        set: value => {
+            if (value == 5) throw new Error('what the fuck')
+            computeOptimumLocation(value)
+        }
     })
 }
 
 const circle = new Circle(10)
 
-circle.defaultLocation
+console.log(circle.defLoc = 5)
