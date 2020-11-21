@@ -27,20 +27,42 @@ const circle = new Circle(10)
 // console.log(circle.defLoc = 55)
 // console.log(circle.defLoc)
 
-function StopWatch() { 
+function StopWatch() {
     let startTime, endTime, running, duration = 0
-
-    this.start = function() {
-        startPoint = Date.now()
+    
+    this.start = () => {
+        if (running) console.log('its already running')
+        else {
+            running = true
+            startTime = Date.now()
+        }
     }
 
-    // this.stop() = function() {}
-    
-    // this.restart = function() {}
+    this.stop = () => {
+        if (!running) console.log('its not running!')
+        else {
+            running = false
+            endTime = Date.now()
 
+            const seconds = (endTime - startTime) / 1000
+            duration += seconds
+        }
+    }
+
+    this.restart = () => {
+        startTime = endTime = null
+        running = false
+        duration = 0
+    }
     
+    Object.defineProperty(this, 'duration', {
+        get: () => duration
+    })
+
 }
 
 const sw =  new StopWatch()
 
-console.log(sw.duration)
+sw.start()
+
+console.log(sw.duration())
