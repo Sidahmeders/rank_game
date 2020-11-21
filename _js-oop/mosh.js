@@ -1,10 +1,10 @@
 
-let obj = {val: 10}
+function Circle(radius) {
+    this.radius = radius
 
-function increase({ val }) {
-    val++
+    this.defaultLocation = {x: 0, y: 0}
+
+    this.computeOptimumLocation = function() {
+        // do some fancy stuff
+    }
 }
-
-increase(obj)
-
-console.log(obj.val)
