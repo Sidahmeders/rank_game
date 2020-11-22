@@ -56,7 +56,7 @@ function StopWatch() {
     }
     
     Object.defineProperty(this, 'duration', {
-        get: () => duration
+        get: () => duration.toFixed(2)
     })
 
 }
@@ -64,5 +64,6 @@ function StopWatch() {
 const sw =  new StopWatch()
 
 sw.start()
+sw.stop()
 
-console.log(sw.duration())
+sw.duration
