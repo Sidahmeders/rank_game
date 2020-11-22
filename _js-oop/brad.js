@@ -19,10 +19,14 @@ Book.prototype.getSummary = function() {
 
 // magazine constructor
 function Magazine(title, author, year, month) {
+    // inherit from the Book
     Book.call(this, title, author,year)
     this.month = month
 }
 
+// inherit the prototype
+Magazine.prototype = Object.create(Book.prototype)
+
 const magazine1 = new Magazine('cold summer', 'Jhon Doe', '2020', 'April')
 
-console.log(magazine1)
+console.log(magazine1.getSummary())
