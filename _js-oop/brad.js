@@ -47,3 +47,10 @@ const bookProtos = {
     }
 }
 
+// create object
+const book2 = Object.create(bookProtos)
+book2.title = 'Book two'
+book2.author = 'simon sinek'
+book2.year = '1998'
+
+console.log(book2)
